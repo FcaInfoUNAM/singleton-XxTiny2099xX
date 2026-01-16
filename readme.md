@@ -40,10 +40,11 @@ El código actual no impide que múltiples partes de la aplicación creen sus pr
     *   En la clase `Main`, reemplaza todas las llamadas a `new AppConfig()` por llamadas a `AppConfig.getInstance()`.
 
 #### Preguntas de Análisis:
-*   Después de tus cambios, ¿cuál es el resultado de `(config1 == config2)`? ¿Por qué es importante este resultado?
-*   ¿Por qué el campo `instance` se declara como `static`?
+*   Después de tus cambios, ¿cuál es el resultado de `(config1 == config2)`? ¿Por qué es importante este resultado? true, porque mbas variables apuntan al mismo objeto en memoria
+*   ¿Por qué el campo `instance` se declara como `static`? Porque la instancia pertenece a la clase, no a un objeto.
 *   ¿Cuál es la principal desventaja de usar el enfoque de "Inicialización Ansiosa" (Eager Initialization) demostrado aquí? (Pista: ¿cuándo se crea la instancia?). Investiga y prepárate para discutir la alternativa de "Inicialización Perezosa" (Lazy Initialization) en la próxima clase.
-*   El patrón Singleton a veces es criticado. ¿Puedes pensar en una potencial desventaja, especialmente en aplicaciones grandes? (Pista: piensa en estado global y capacidad de prueba - testability).
+  La instancia se crea en cuanto la clase se carga en memoria, incluso si nunca se usa.
+*   El patrón Singleton a veces es criticado. ¿Puedes pensar en una potencial desventaja, especialmente en aplicaciones grandes? (Pista: piensa en estado global y capacidad de prueba - testability).Muchas clases dependen del Singleton, lo que hace más difícil modificar o extender el código.
 
 ---
 
